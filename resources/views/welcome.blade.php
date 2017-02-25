@@ -38,7 +38,8 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title">Hele</div>
+                <p>Travelling made easy, Enjoy your holidays with us</p>
             </div>
         </div>
     </body>

@@ -82,7 +82,12 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        //pull daata frm db
+        $post=Post::find($id);
+
+        //return view containing Update form
+        return view('posts.edit')->withPost($post);
+
     }
 
     /**
@@ -94,7 +99,23 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Validation
+        $this->validate($request, array(
+            'title' => 'required|max:255',
+            'body' => 'required'
+            ));
+        //Save Data to database
+        $post=Post::find($id);
+
+        $post->title=$request->title;
+        $post->body=$request->body;
+
+        $post->save();
+        //add flash success message
+        Session::flash('success', 'Blog post updated successfully');
+        //redirect
+        return redirect()->route('posts.show', $post->id);
+
     }
 
     /**
@@ -105,6 +126,11 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+
+        Session::flash('success', 'Blog post was deleted successfully.');
+
+        return redirect()->route('posts.index');
     }
 }

@@ -1,5 +1,5 @@
 @extends('main')
-@section('title', 'Home')
+@section('title', '| Home')
 @section('content')
         <div class="row">
             <div class="col-md-12">
@@ -12,60 +12,16 @@
         </div><!--end or header .row-->
         <div class="row">
             <div class="col-md-8">
+                @foreach($posts as $post)
                 <div class="post">
-                    <h2>Post Title</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum...</p>
-                    <a class="btn btn-primary" href="#">Read More</a>
+                    <h2>{{ $post->title }}</h2>
+                    <p>
+                        {{ substr($post->body, 0, 500) }} {{ strlen($post->body)>500 ? "..." : "" }}
+                    </p>
+                    <a class="btn btn-primary" href="{{ route('blog.single', $post->slug) }}">Read More</a>
                 </div>
                 <hr>
-                <div class="post">
-                    <h2>Post Title</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum...</p>
-                    <a class="btn btn-primary" href="#">Read More</a>
-                </div>
-                <hr>
-                <div class="post">
-                    <h2>Post Title</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum...</p>
-                    <a class="btn btn-primary" href="#">Read More</a>
-                </div>
-                <hr>
-                <div class="post">
-                    <h2>Post Title</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum...</p>
-                    <a class="btn btn-primary" href="#">Read More</a>
-                </div>
-                <hr>
-                <div class="post">
-                    <h2>Post Title</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum...</p>
-                    <a class="btn btn-primary" href="#">Read More</a>
-                </div>
+                @endforeach
             </div>
             <div class="col-md-3 col-md-offset-1">
                <h2>Sidebar</h2>

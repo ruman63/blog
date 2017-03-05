@@ -1,11 +1,12 @@
 @extends('main')
-@section('title', 'Contact Us')
+@section('title', '| Contact Us')
 @section('content')
         <div class="row">
             <div class="col-md-8">
                 <h1>Contact Us</h1>
                 <hr>
-                <form>
+                <form action="{{ url('contact') }}" method="POST">
+                    {{ csrf_field() }}
                     <div class="form-group">
                         <label name="email">Email:</label>
                         <input id="email" name="email" class="form-control">

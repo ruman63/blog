@@ -1,5 +1,5 @@
 @extends('main')
-@section('title','View Posts')
+@section('title','| View Posts')
 @section('content')
 	<div class="row">
 		<div class="col-md-10">
@@ -36,6 +36,9 @@
 					@endforeach
 				</tbody>
 			</table>
+			<div class="text-center">
+				{!! $posts->links() !!}
+			</div>
 		</div>
 	</div>
 

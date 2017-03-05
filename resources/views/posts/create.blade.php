@@ -4,6 +4,15 @@
 
 @section('styles')
   {{ Html::style('css/select2.min.css') }}
+  <script src="//cloud.tinymce.com/stable/tinymce.min.js?apiKey=ufq92xe02j5rgd4onrcl33vmwhqlt81k5i0h5rj785xjfbom"></script>
+  <script>
+    tinymce.init({ 
+      selector:'textarea',
+      plugin: 'link',
+      menubar: false
+    });
+  </script>
+
 @endsection
 
 @section('content')
